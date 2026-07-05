@@ -9,6 +9,11 @@ function playNow() {
     document.getElementById('game')?.scrollIntoView({ behavior: 'smooth' })
   })
 }
+
+function quitGame() {
+  showGame.value = false
+  document.querySelector('.hero')?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -19,13 +24,16 @@ function playNow() {
   </header>
 
   <section id="game" class="game-section" v-if="showGame">
-    <iframe
-      class="game-frame"
-      src="/game/index.html"
-      title="Harry's Broom Ride"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-    ></iframe>
+    <div class="game-wrap">
+      <iframe
+        class="game-frame"
+        src="/game/index.html"
+        title="Harry's Broom Ride"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+      <button class="quit-btn" @click="quitGame">Quit</button>
+    </div>
     <p class="hint">Controls: A/D to turn, W/S to move, Space/Ctrl to rise/descend.</p>
   </section>
 
@@ -103,13 +111,37 @@ body {
   text-align: center;
 }
 
+.game-wrap {
+  position: relative;
+  line-height: 0;
+}
+
 .game-frame {
   width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 90vh;
   border: 2px solid #2a2f3a;
   border-radius: 8px;
-  background: #000;
+  background: #0b0e14;
+}
+
+.quit-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #6b1214;
+  color: #f4cc5a;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.quit-btn:hover {
+  background: #841518;
 }
 
 .hint {
