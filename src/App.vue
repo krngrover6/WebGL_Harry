@@ -97,7 +97,7 @@ body {
 }
 
 .game-section {
-  max-width: 960px;
+  max-width: 1600px;
   margin: 0 auto 3rem;
   padding: 0 1.5rem;
   text-align: center;
@@ -106,6 +106,7 @@ body {
 .game-frame {
   width: 100%;
   aspect-ratio: 16 / 9;
+  max-height: 90vh;
   border: 2px solid #2a2f3a;
   border-radius: 8px;
   background: #000;
